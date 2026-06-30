@@ -4,21 +4,22 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@Disabled
+
 @TeleOp
 public class Test extends OpMode {
 
 
+    MechanumDrive mechanumDrive = new MechanumDrive();
 
     @Override
     public void init() {
-        double strafe = 8;
-        int teamnumber = 23668;
+        mechanumDrive.init(hardwareMap, gamepad1);
     }
 
     @Override
     public void loop() {
-        telemetry.addData("Hello", "World");
-        telemetry.addData("Team Number", teamnumber);
+
+        mechanumDrive.drive(0.75);
+
     }
 }
